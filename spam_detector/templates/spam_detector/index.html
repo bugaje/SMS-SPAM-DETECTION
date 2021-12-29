@@ -1,0 +1,50 @@
+{% extends 'spam_detector/main.html' %} {% block content %} {% for message in messages %} {% if message.tags == 'error' %}
+<div class="alert alert-danger">
+    <center><strong style="color: red;">{{ message }}</strong></center>
+</div>
+{% else %}
+<div class="alert alert-success">
+    <center><strong style="color: green;">{{ message }}</strong></center>
+</div>
+{% endif %} {% endfor %}
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <center>
+            <p style="color: rgb(8, 8, 2);font-size: 25px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">SMS SPAM Detector Web Based Application
+                <p><strong>Using Machine Learning and Natural Language Processing.</strong></p>
+            </p>
+
+        </center>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<style>
+    .card {
+        box-shadow: 0 0 10px red;
+    }
+    
+    .card:hover {
+        box-shadow: 0 0 25px red;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form class="card card-body form-horizontal" style="border: 1px solid black;" action="" method="POST">
+            <!--             {% csrf_token %} -->
+            <div class="form-group">
+                <textarea style="border: 1px solid black;" class="form-control" rows="10" name="message" placeholder="Kinldy Enter the Message or Paste here to check"></textarea>
+            </div>
+            <center><input class="btn btn-info" type="submit" value="Check, if it's spam or not?"></center>
+        </form>
+        <center>
+            <p style="font-size: 15px;"><strong>By: FARIDA <p>Department of Computer Science.</p></strong></p>
+        </center>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% endblock %}
